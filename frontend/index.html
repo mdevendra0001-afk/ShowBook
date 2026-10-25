@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShowBook — Movie Tickets</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="#" data-page="home"><span class="brand-mark">▶</span> ShowBook</a>
+    <nav>
+      <button class="nav-link active" data-page="home">Home</button>
+      <button class="nav-link" data-page="movies">Movies</button>
+      <button class="nav-link" data-page="bookings">My Bookings <span id="booking-count" class="count">0</span></button>
+    </nav>
+    <div class="nav-user">🎟️ <span>Movie time?</span></div>
+  </header>
+
+  <main>
+    <section id="home-page" class="page">
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">NOW SHOWING</p>
+          <h1>Your next movie night<br><span>starts here.</span></h1>
+          <p>Discover movies, choose your seats, and book your tickets in minutes.</p>
+          <button class="btn primary" id="explore-btn">Explore Movies <span>→</span></button>
+        </div>
+        <div class="hero-art" aria-label="Cinema illustration">
+          <div class="poster-glow"></div>
+          <div class="film-ticket"><span>SHOWBOOK</span><strong>BIG<br>SCREEN<br>ENERGY</strong><small>YOUR SEAT IS WAITING</small></div>
+        </div>
+      </section>
+      <div class="section-heading">
+        <div><p class="eyebrow">PICK YOUR NEXT STORY</p><h2>Popular movies</h2></div>
+        <button class="text-btn" data-page="movies">View all movies →</button>
+      </div>
+      <div id="home-movies" class="movie-grid"></div>
+    </section>
+
+    <section id="movies-page" class="page hidden">
+      <div class="section-heading page-heading">
+        <div><p class="eyebrow">FIND YOUR FAVOURITE</p><h1>Explore movies</h1></div>
+        <label class="search-box">⌕ <input id="movie-search" type="search" placeholder="Search movies..."></label>
+      </div>
+      <div id="all-movies" class="movie-grid"></div>
+    </section>
+
+    <section id="details-page" class="page hidden">
+      <button class="back-btn" data-page="movies">← Back to movies</button>
+      <div id="movie-details" class="details-layout"></div>
+    </section>
+
+    <section id="seats-page" class="page hidden">
+      <button class="back-btn" id="back-details">← Back to movie</button>
+      <div id="seat-movie-summary" class="seat-summary"></div>
+      <div class="booking-layout">
+        <section class="seat-panel">
+          <div class="screen"><span>SCREEN THIS WAY</span></div>
+          <div class="seat-legend">
+            <span><i class="seat sample available"></i> Available</span>
+            <span><i class="seat sample selected"></i> Selected</span>
+            <span><i class="seat sample booked"></i> Booked</span>
+          </div>
+          <div id="seat-map" class="seat-map"></div>
+        </section>
+        <aside class="booking-summary">
+          <p class="eyebrow">YOUR ORDER</p><h2>Booking summary</h2>
+          <div id="summary-movie" class="summary-movie"></div>
+          <div class="summary-line"><span>Selected seats</span><strong id="selected-seats">None</strong></div>
+          <div class="summary-line"><span>Ticket price</span><strong id="ticket-price">₹0</strong></div>
+          <div class="summary-line total"><span>Total</span><strong id="total-price">₹0</strong></div>
+          <button id="confirm-booking" class="btn primary full" disabled>Confirm booking</button>
+          <p class="fine-print">Demo only — no payment is collected.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="confirmation-page" class="page hidden">
+      <div id="confirmation-content" class="confirmation-card"></div>
+    </section>
+
+    <section id="bookings-page" class="page hidden">
+      <div class="section-heading page-heading">
+        <div><p class="eyebrow">YOUR TICKETS, ALL IN ONE PLACE</p><h1>My bookings</h1></div>
+      </div>
+      <div id="bookings-list"></div>
+    </section>
+  </main>
+
+  <footer><span class="brand small-brand"><span class="brand-mark">▶</span> ShowBook</span><span>Made for movie lovers · Frontend demo</span></footer>
+  <div id="toast" class="toast" role="status"></div>
+</body>
+</html>
